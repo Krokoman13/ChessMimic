@@ -13,7 +13,7 @@ namespace Chess
         ChessPlayer _whitePlayer;
         ChessPlayer _blackPlayer;
 
-        int moves = 0;
+        int movesCount = 0;
 
         public GameHandeler(ChessPlayer white, ChessPlayer black)
         {
@@ -53,7 +53,7 @@ namespace Chess
 
             if (_board.whiteToMove)
             {
-                moves++;
+                movesCount++;
                 move = _whitePlayer.MakeMove();
             }
             else
@@ -65,7 +65,7 @@ namespace Chess
             _board.Display();
 
             Console.WriteLine();
-            Console.WriteLine(moves + (_board.whiteToMove ? " Black" : " White") + ": " + move.RevAlgebraic());
+            Console.WriteLine(movesCount + ": " + (!_board.whiteToMove ? _whitePlayer : _blackPlayer).PlayerType() + ", "+ (_board.whiteToMove ? " Black" : " White") + ": " + move.RevAlgebraic());
             Console.WriteLine("Fen: " + _board.GenerateRealFenString());
             Console.WriteLine();
         }

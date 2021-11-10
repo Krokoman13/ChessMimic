@@ -21,5 +21,10 @@ namespace Chess
 
             return move;
         }
+
+        public override string PlayerType()
+        {
+            return "Human Player";
+        }
     }
 }

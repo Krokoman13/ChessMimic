@@ -23,5 +23,6 @@ namespace Chess
 
         public abstract Move MakeMove();
 
+        public abstract string PlayerType();
     }
 }

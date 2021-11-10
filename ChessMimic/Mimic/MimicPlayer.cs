@@ -23,7 +23,7 @@ namespace Mimic
             Move move = findMove();
             if (move.valid) return move;
 
-            Console.WriteLine(_board.GenerateRealFenString());
+            Console.WriteLine("Cannot find a valid move for this position");
             throw new ArgumentException("Cannot find a valid Move");
         }
 
@@ -60,6 +60,11 @@ namespace Mimic
             }
 
             return Move.invalid;   //Return an invalid move
+        }
+
+        public override string PlayerType()
+        {
+            return "Computer Player";
         }
     }
 }
