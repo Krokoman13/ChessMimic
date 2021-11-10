@@ -96,6 +96,12 @@ namespace Mimic
 
                     fullInstruction = fen + "\n" + algebraicMove + "\n\n";
 
+                    if (!board.whiteToMove && whiteWins || board.whiteToMove && blackWins)
+                    {
+                        if (!isInFile(winPath, fen)) winningInstr += fullInstruction;
+                        continue;
+                    }
+
                     if (!isInFile(relativePath + outputFilePath + (board.whiteToMove ? black : white) + ".txt", fen))
                     {
 
@@ -103,9 +109,6 @@ namespace Mimic
                         else newBlackInstr += fullInstruction;
                         //continue;
                     }
-
-                    if (isInFile(winPath, fen)) continue;
-                    if (!board.whiteToMove && whiteWins || board.whiteToMove && blackWins) winningInstr += fullInstruction;
                 }
 
                 if (board.gameOver)

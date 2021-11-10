@@ -9,7 +9,7 @@ class Program
         InstructionGenerator generator = new InstructionGenerator();
         generator.ProcesAllFiles();
 
-        GameHandeler game = new GameHandeler(new HumanPlayer(Piece.White), new MimicPlayer(Piece.Black));
+        GameHandeler game = new GameHandeler(new MimicPlayer(Piece.White), new MimicPlayer(Piece.Black));
         game.Run();
     }
 }
